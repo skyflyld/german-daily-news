@@ -52,4 +52,5 @@ Dieses Repository wird automatisch von [Ariste](https://github.com/skyflyld) bef
 
 ---
 
+| [2026-06-04](./2026/06/2026-06-04.md) | OECD下调预期/安理会首轮落选/电动车39%增长/德国AI突破30% | 10维度 20条目 | ✅ |
 > 🦞 *Per Aspera Ad Astra*
