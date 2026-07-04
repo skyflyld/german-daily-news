@@ -1,0 +1,27 @@
+name: News Daily Fetch
+
+on:
+  schedule:
+    - cron: '0 0,12 * * *'   # 08:00 BJT / 20:00 BJT
+  workflow_dispatch:
+
+jobs:
+  fetch-news:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Fetch & compile news
+        run: python3 .github/scripts/fetch-news-daily.py
+      
+      - name: Commit & push
+        run: |
+          git config user.name "german-daily-news[bot]"
+          git config user.email "bot@skyflyld.com"
+          git add news-daily/
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "news-daily: $(date +'%Y-%m-%dT%H:%M')"
+            git push
+          fi

@@ -1,0 +1,27 @@
+name: Lithium Data Fetch
+
+on:
+  schedule:
+    - cron: '0 2,14 * * 1-5'   # 10:00 BJT / 22:00 BJT, 工作日
+  workflow_dispatch:
+
+jobs:
+  fetch-lithium:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Fetch & compile lithium data
+        run: python3 .github/scripts/fetch-lithium-data.py
+      
+      - name: Commit & push
+        run: |
+          git config user.name "german-daily-news[bot]"
+          git config user.email "bot@skyflyld.com"
+          git add lithium-data/
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "lithium-data: $(date +'%Y-%m-%dT%H:%M')"
+            git push
+          fi
