@@ -1,8 +1,8 @@
 name: Lithium Data Fetch
 
 on:
-  schedule:
-    - cron: '0 2,14 * * 1-5'   # 10:00 BJT / 22:00 BJT, 工作日
+  # schedule:
+  #   - cron: '0 2,14 * * 1-5'   # 停用: Sky 2026-07-05 指令不再自动运行
   workflow_dispatch:
 
 jobs:
