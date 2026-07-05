@@ -2,7 +2,7 @@ name: News Daily Fetch
 
 on:
   schedule:
-    - cron: '0 0,12 * * *'   # 08:00 BJT / 20:00 BJT
+    - cron: '30 0,12 * * *'   # 08:00 BJT / 20:00 BJT
   workflow_dispatch:
 
 jobs:

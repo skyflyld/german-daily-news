@@ -3,7 +3,7 @@ name: 🇩🇪 Daily German News Fetch
 on:
   schedule:
     # Daily at 00:00 UTC (08:00 BJT)
-    - cron: '0 0 * * *'
+    - cron: '30 0 * * *'
   workflow_dispatch:  # manual trigger
 
 permissions:
